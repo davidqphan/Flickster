@@ -11,11 +11,8 @@
     <ImageView
         android:id="@+id/ivMovieImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:paddingRight="8dp"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/image_horizontal_margin"
         tools:src="@mipmap/ic_launcher"/>
 
     <TextView
@@ -31,7 +28,7 @@
 
     <TextView
         android:id="@+id/tvOverview"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         tools:text="Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges."
         android:layout_below="@+id/tvTitle"
