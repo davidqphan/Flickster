@@ -24,6 +24,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MovieActivity extends AppCompatActivity {
 
+    private static final String API_KEY = BuildConfig.API_KEY;
     public final static String API_BASE_URL = "https://api.themoviedb.org/3";
     public final static String API_KEY_PARAM = "api_key";
     public final static String TAG = "MovieActivity";
@@ -103,7 +104,7 @@ public class MovieActivity extends AppCompatActivity {
 
     private RequestParams getApiParams(){
         RequestParams params = new RequestParams();
-        params.put(API_KEY_PARAM, getString(R.string.moviedb_api_key));
+        params.put(API_KEY_PARAM, API_KEY);
         return params;
     }
 }
