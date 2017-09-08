@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.codepath.flickster.R;
 import com.codepath.flickster.models.Config;
 import com.codepath.flickster.models.Movie;
 import com.squareup.picasso.Picasso;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import java.util.ArrayList;
 
@@ -81,8 +84,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
     private void loadImage(String path, ImageView imageView) {
-        Picasso.with(context)
+
+        Glide.with(context)
                 .load(path)
+                .bitmapTransform(new RoundedCornersTransformation(context, 25, 0))
                 .placeholder(R.drawable.ic_movie)
                 .into(imageView);
     }
