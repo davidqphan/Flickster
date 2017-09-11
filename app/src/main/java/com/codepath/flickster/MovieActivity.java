@@ -85,11 +85,17 @@ public class MovieActivity extends AppCompatActivity {
         client.get(url, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                JSONArray movieJsonResults = null;
+                JSONArray movieJsonResults;
                 try {
                     movieJsonResults = response.getJSONArray("results");
-                    movies.addAll(Movie.fromJSONArray(movieJsonResults));
-                    movieAdapter.notifyDataSetChanged();
+
+                    for(int i = 0; i < movieJsonResults.length(); i ++) {
+                        Movie movie = new Movie(movieJsonResults.getJSONObject(i));
+                        movies.add(movie);
+                        movieAdapter.notifyItemInserted(movies.size()-1);
+                    }
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
