@@ -1,6 +1,7 @@
 package com.codepath.flickster.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.flickster.MovieDetailsActivity;
 import com.codepath.flickster.R;
 import com.codepath.flickster.models.Config;
 import com.codepath.flickster.models.Movie;
@@ -20,6 +22,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import java.util.ArrayList;
 
+import org.parceler.Parcels;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -33,7 +36,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     Context context;
     ArrayList<Movie> movies;
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Nullable @BindView(R.id.ivPosterImg) ImageView ivPoster;
         @Nullable @BindView(R.id.ivBackdropImg) ImageView ivBackdrop;
         @BindView(R.id.tvTitle) TextView tvTitle;
@@ -42,6 +45,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+
+            if(position != RecyclerView.NO_POSITION) {
+                Movie movie = movies.get(position);
+                Intent movieDetails = new Intent(context, MovieDetailsActivity.class);
+                movieDetails.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+                context.startActivity(movieDetails);
+            }
         }
     }
 
