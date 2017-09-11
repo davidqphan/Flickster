@@ -50,6 +50,8 @@ Describe any challenges encountered while building the app.
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+- [Butterknife] (https://github.com/JakeWharton/butterknife) - Field and method binding for Android views
+- [Glide] (https://github.com/bumptech/glide) - Image loading framework and transformations
 
 ## License
 
