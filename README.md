@@ -40,7 +40,7 @@ Here's a walkthrough of implemented user stories:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenges encountered while building the app:
 
 * I had an issue with obfuscating the API keys.
 * I tried transitioning AsyncHttp to OkHttp with JSON, I will try and learn in another project.
